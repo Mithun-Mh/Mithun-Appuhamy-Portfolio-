@@ -32,6 +32,7 @@ import {
 } from "@/components/ui/card";
 import { SectionHeader } from "@/components/ui/section-header";
 import { SITE_CONFIG } from "@/lib/constants";
+import { Hero } from "@/components/sections/hero";
 
 export default function Home() {
   const paletteItems = [
@@ -115,77 +116,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="py-10 sm:py-16 space-y-24 sm:space-y-32">
-      {/* 1. Home Section */}
-      <section id="home" className="scroll-mt-24">
-        <Container size="lg">
-          <div className="max-w-3xl space-y-6">
-            <div className="flex flex-wrap items-center gap-2.5">
-              <Badge variant="status" dot size="sm">
-                {SITE_CONFIG.status}
-              </Badge>
-              <Badge variant="outline" size="sm">
-                Next.js App Router + TypeScript
-              </Badge>
-              <Badge variant="outline" size="sm">
-                Tailwind CSS
-              </Badge>
-            </div>
+    <div className="space-y-20 sm:space-y-28 pb-16">
+      {/* 1. Hero Section */}
+      <Hero />
 
-            <Heading variant="display" as="h1">
-              Engineering with clarity, speed, and modern restraint.
-            </Heading>
-
-            <Text variant="lead">
-              Welcome to the portfolio of{" "}
-              <span className="font-semibold text-portfolio-dark">
-                {SITE_CONFIG.name}
-              </span>
-              . Engineered for international technology recruiters and leading Sri
-              Lankan IT companies, built on a foundation of clean code and
-              minimalist design.
-            </Text>
-
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Button
-                variant="primary"
-                size="md"
-                href="#projects"
-                rightIcon={<ArrowRight className="w-4 h-4" />}
-              >
-                View Projects
-              </Button>
-              <Button
-                variant="outline"
-                size="md"
-                href="#contact"
-              >
-                Get in touch
-              </Button>
-            </div>
-
-            {/* Tech Stack Indicator Pills */}
-            <div className="pt-6 border-t border-portfolio-border flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-portfolio-muted">
-              <span className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-portfolio-accent" />
-                Zero Vite / Pure Next.js
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-portfolio-accent" />
-                TypeScript Strict Mode
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-portfolio-accent" />
-                Reduced Motion Ready
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Check className="w-4 h-4 text-portfolio-accent" />
-                Lucide React Icons
-              </span>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* Target anchor for 2-Minute Introduction */}
+      <div id="introduction" className="scroll-mt-24" />
 
       {/* 2. About Section */}
       <section id="about" className="scroll-mt-24">
