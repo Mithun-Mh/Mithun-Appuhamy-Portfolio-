@@ -15,7 +15,7 @@ export const Footer = () => {
 
           <div className="flex items-center gap-6">
             <a
-              href="#overview"
+              href="#home"
               className="hover:text-portfolio-dark transition-colors"
             >
               Back to top ↑

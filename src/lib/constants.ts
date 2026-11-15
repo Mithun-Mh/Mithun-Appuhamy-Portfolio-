@@ -1,16 +1,17 @@
 export const SITE_CONFIG = {
-  name: "Mithun Appuhamy",
+  name: "MITHUN APPUHAMY",
   title: "Mithun Appuhamy — Software Engineer & Full-Stack Developer",
   description:
     "Clean, modern, and performant web engineering. Building robust enterprise systems and intuitive digital products.",
   status: "Available for opportunities",
   location: "Sri Lanka / Remote",
   navItems: [
-    { label: "Overview", href: "#overview" },
-    { label: "Design System", href: "#design-system" },
-    { label: "Typography", href: "#typography" },
-    { label: "Components", href: "#components" },
-    { label: "Palette", href: "#palette" },
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
+    { label: "Contact", href: "#contact" },
   ],
   colors: {
     background: "#F8F7F4",
