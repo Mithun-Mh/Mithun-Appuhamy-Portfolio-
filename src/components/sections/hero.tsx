@@ -7,10 +7,30 @@ import { Container } from "@/components/ui/container";
 import { Heading, Text } from "@/components/ui/typography";
 import { Badge } from "@/components/ui/badge";
 import { SITE_CONFIG } from "@/lib/constants";
+import { cn } from "@/lib/utils";
+
+const photos = [
+  { src: "/profile.jpg",    alt: "Mithun Appuhamy — Software Engineer" },
+  { src: "/graduation.jpg", alt: "Mithun Appuhamy — SLIIT Graduate" },
+];
 
 export const Hero = () => {
   const [imageError, setImageError] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  // Auto-cycle photos: show first for 4 s, fade to second, repeat
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setPhotoIndex((prev) => (prev + 1) % photos.length);
+        setFading(false);
+      }, 600); // matches transition duration below
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   // Close modal on Escape key press
   useEffect(() => {
@@ -161,12 +181,15 @@ export const Hero = () => {
                 <div className="relative aspect-[4/5] sm:aspect-[4/5] w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-portfolio-surface border border-portfolio-border shadow-elevated transition-transform duration-500 ease-out hover:scale-[1.01]">
                   {!imageError ? (
                     <Image
-                      src="/profile.jpg"
-                      alt="Mithun Appuhamy — Software Engineer"
+                      src={photos[photoIndex].src}
+                      alt={photos[photoIndex].alt}
                       fill
                       priority
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px"
-                      className="object-cover object-top transition-all duration-700 hover:scale-105 motion-reduce:transform-none"
+                      className={cn(
+                        "object-cover object-top transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none",
+                        fading ? "opacity-0" : "opacity-100"
+                      )}
                       onError={() => setImageError(true)}
                     />
                   ) : (
@@ -186,6 +209,21 @@ export const Hero = () => {
                     </div>
                   )}
 
+                  {/* Photo dot indicators */}
+                  <div className="absolute top-3 right-3 flex gap-1.5 z-10 motion-reduce:hidden" aria-hidden="true">
+                    {photos.map((_, i) => (
+                      <span
+                        key={i}
+                        className={cn(
+                          "block w-1.5 h-1.5 rounded-full transition-all duration-300",
+                          i === photoIndex
+                            ? "bg-white scale-110"
+                            : "bg-white/40"
+                        )}
+                      />
+                    ))}
+                  </div>
+
                   {/* Subtle Inner Gradient Overlay for Visual Depth */}
                   <div
                     className="absolute inset-0 bg-gradient-to-t from-portfolio-dark/25 via-transparent to-transparent pointer-events-none"
@@ -201,7 +239,7 @@ export const Hero = () => {
                       </span>
                     </div>
                     <span className="text-[11px] font-medium text-portfolio-muted">
-                      Software Engineer
+                      Aspiring AI Engineer
                     </span>
                   </div>
                 </div>

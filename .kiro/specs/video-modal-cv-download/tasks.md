@@ -6,13 +6,13 @@ This plan implements two changes to the existing portfolio: (1) upgrading the He
 
 ## Tasks
 
-- [-] 1. Create placeholder files in public directory
+- [ ] 1. Create placeholder files in public directory
   - Create `public/videos/.gitkeep` (empty file) so the videos directory exists in version control.
   - Create `public/cv/mithun-appuhamy-cv.pdf` — a minimal valid PDF file with placeholder text: "Mithun Appuhamy - CV Placeholder" and "Replace this file with your real CV." This must be a valid PDF that opens in any PDF viewer.
   - Do NOT create or generate a real video file.
   - Do NOT create an AI avatar or synthetic video.
 
-- [~] 2. Update video modal in hero.tsx with real video player
+- [ ] 2. Update video modal in hero.tsx with real video player
   - Add `useRef` to the React imports (already has `useState`, `useEffect`).
   - Add state: `const [videoError, setVideoError] = useState(false);`
   - Add ref: `const videoRef = useRef<HTMLVideoElement>(null);`
@@ -31,7 +31,7 @@ This plan implements two changes to the existing portfolio: (1) upgrading the He
   - Maintain `role="dialog"`, `aria-modal="true"`, `aria-labelledby="video-modal-title"`.
   - Maintain existing `animate-fade-in` and `animate-slide-up` classes.
 
-- [~] 3. Add Download CV button to navbar.tsx
+- [ ] 3. Add Download CV button to navbar.tsx
   - Add `Download` to the existing `lucide-react` import: `import { Menu, X, Download } from "lucide-react";`
   - Restructure the top flex container to create a right-side cluster wrapping nav + CTA + mobile toggle in a `<div className="flex items-center gap-3">`.
   - Add a desktop Download CV button (between the nav and mobile toggle) using: `<a href="/cv/mithun-appuhamy-cv.pdf" download className="hidden md:inline-flex items-center gap-2 h-9 px-4 rounded-lg bg-portfolio-accent text-white text-sm font-medium whitespace-nowrap shadow-subtle transition-all duration-200 hover:bg-portfolio-accent-hover hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-portfolio-accent focus-visible:outline-offset-2"><Download className="w-4 h-4" /><span>Download CV</span></a>`
@@ -41,7 +41,7 @@ This plan implements two changes to the existing portfolio: (1) upgrading the He
   - Do NOT add new dependencies.
   - Use existing `portfolio-accent` / `portfolio-accent-hover` color tokens.
 
-- [~] 4. Verify build and test open/close behavior
+- [ ] 4. Verify build and test open/close behavior
   - Run `npm run build` to verify there are no TypeScript or compilation errors.
   - Verify the "Watch Introduction" button opens the existing modal.
   - Verify the modal shows the video placeholder (since no real video file exists) OR the video player if a file is added.
