@@ -24,6 +24,7 @@ interface SkillCategory {
   id: string;
   label: string;
   icon: React.ElementType;
+  description?: string;
   primary?: true;
   skills: SkillItem[];
 }
@@ -110,7 +111,7 @@ const CATEGORIES: SkillCategory[] = [
       { name: "Docker Hub",                 level: "hands-on"    },
       { name: "GitHub Actions",             level: "hands-on"    },
       { name: "CI/CD Pipelines",            level: "hands-on"    },
-      { name: "Linux",                      level: "hands-on"    },
+      { name: "Linux",                      level: "fundamentals"    },
       { name: "Kubernetes Fundamentals",    level: "fundamentals"},
       { name: "Terraform Fundamentals",     level: "fundamentals"},
     ],
